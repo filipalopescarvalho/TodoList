@@ -3,6 +3,7 @@ import "./App.css";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
+  console.log(todos);
   const [inputValue, setInputValue] = useState("");
 
   const addTodo = () => {
@@ -145,6 +146,8 @@ const App = () => {
                     textDecoration: todo.done ? "line-through" : "none",
                     color: todo.done ? "#999" : "#333",
                     fontWeight: "500",
+                    backgroundColor: "#64889c",
+                    border: "1px solid rgb(54, 123, 160)",
                   }}
           
               >
