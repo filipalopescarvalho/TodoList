@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css"; // Optional if you still use any custom CSS
+import "./App.css";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -39,30 +39,31 @@ const App = () => {
         </div>
         <ul>
   {todos.map((todo, index) => (
-    <li key={index} className="flex items-center justify-between mb-2 p-2 rounded hover:bg-purple-50">
-      <label className="flex items-center space-x-3">
+    <li 
+      key={index} 
+      className="flex justify-between items-center py-2 border-b"
+    >
+      <label className="flex items-center space-x-3 cursor-pointer">
         <input 
           type="checkbox" 
           checked={todo.done} 
           onChange={() => toggleDone(index)} 
           className="form-checkbox h-5 w-5 text-purple-600"
         />
-        
         <span className={todo.done ? "line-through text-gray-400" : ""}>
           {todo.text}
         </span>
       </label>
+
       <button 
         onClick={() => deleteTodo(index)} 
-        className="text-red-500 hover:text-red-700 ml-4"
-        aria-label="Delete todo"
+        className="ml-4 text-red-600 hover:text-red-800 font-semibold"
       >
-        🗑️
+        Delete
       </button>
     </li>
   ))}
 </ul>
-
       </div>
     </div>
   );
