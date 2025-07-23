@@ -122,55 +122,57 @@ const App = () => {
           )}
 
           {todos.map((todo, index) => (
-            <div
-              key={index}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                backgroundColor: "white",
-                padding: "0.5rem 1rem",
-                borderRadius: "8px",
-                boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-                overflow: "hidden",
-              }}
-            >
-              <input
-                type="checkbox"
-                checked={todo.done}
-                onChange={() => toggleDone(index)}
-                style={{ marginRight: "1rem", flexShrink: 0 }}
-              />
-              <span
-                style={{
-                    flexGrow: 1,
-                    textDecoration: todo.done ? "line-through" : "none",
-                    color: todo.done ? "#999" : "#333",
-                    fontWeight: "500",
-                    backgroundColor: "#64889c",
-                    border: "1px solid rgb(54, 123, 160)",
-                  }}
-          
-              >
-                {todo.text}
-              </span>
-              <button
-                onClick={() => deleteTodo(index)}
-                style={{
-                  backgroundColor: "transparent",
-                  border: "none",
-                  color: "#c53030",
-                  cursor: "pointer",
-                  fontWeight: "bold",
-                  fontSize: "0.9rem",
-                  flexShrink: 0,
-                  marginLeft: "0.5rem",
-                  whiteSpace: "nowrap",
-                }}
-                aria-label={`Delete task: ${todo.text}`}
-              >
-                Delete
-              </button>
-            </div>
+           <div
+           key={index}
+           style={{
+             display: "flex",
+             alignItems: "center",
+             backgroundColor: "white",
+             padding: "0.5rem 1rem",
+             borderRadius: "8px",
+             boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+             overflow: "hidden",
+           }}
+         >
+           <input
+             type="checkbox"
+             checked={todo.done}
+             onChange={() => toggleDone(index)}
+             style={{ marginRight: "1rem", flexShrink: 0 }}
+           />
+           <span
+             style={{
+               flexGrow: 1,          // Take available space
+               flexShrink: 1,        // Allow shrinking if needed
+               minWidth: 0,          // Allow shrinking below content width to prevent overflow
+               textDecoration: todo.done ? "line-through" : "none",
+               color: todo.done ? "#999" : "#333",
+               fontWeight: "500",
+               whiteSpace: "nowrap", // Prevent breaking into multiple lines
+               overflow: "hidden",   // Hide overflow
+               textOverflow: "ellipsis", // Show "..." if text is too long
+             }}
+           >
+             {todo.text}
+           </span>
+           <button
+             onClick={() => deleteTodo(index)}
+             style={{
+               backgroundColor: "transparent",
+               border: "none",
+               color: "#c53030",
+               cursor: "pointer",
+               fontWeight: "bold",
+               fontSize: "0.9rem",
+               flexShrink: 0,     
+               marginLeft: "0.5rem",
+               whiteSpace: "nowrap",
+             }}
+             aria-label={`Delete task: ${todo.text}`}
+           >
+             Delete
+           </button>
+         </div>         
           ))}
         </div>
       </div>
