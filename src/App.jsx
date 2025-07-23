@@ -136,16 +136,19 @@ const App = () => {
               <button
             onClick={() => deleteTodo(index)}
             style={{
-        backgroundColor: "transparent",
-        border: "none",
-        color: "#c53030",
-        cursor: "pointer",
-        fontWeight: "bold",
-        fontSize: "0.9rem",
-        flexShrink: 0,
-        marginLeft: "0.5rem",
-        whiteSpace: "nowrap",
-        minWidth: "50px",
+                backgroundColor: "transparent",
+                border: "none",
+                color: "#c53030",
+                cursor: "pointer",
+                fontWeight: "bold",
+                fontSize: "0.9rem",
+                flexShrink: 0,
+                marginLeft: "0.5rem",
+                whiteSpace: "nowrap",
+                minWidth: "40px",
+                maxWidth: "70px",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
   }}
   aria-label={`Delete task: ${todo.text}`}
 >
