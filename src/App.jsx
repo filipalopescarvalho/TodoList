@@ -129,7 +129,6 @@ const App = () => {
                   textDecoration: todo.done ? "line-through" : "none",
                   color: todo.done ? "#999" : "#333",
                   fontWeight: "500",
-                  display: "left",
                 }}
               >
                 {todo.text}
@@ -137,19 +136,15 @@ const App = () => {
               <button
             onClick={() => deleteTodo(index)}
             style={{
-          backgroundColor: "transparent",
-    border: "none",
-    color: "#c53030",
-    cursor: "pointer",
-    fontWeight: "bold",
-    fontSize: "0.9rem",
-    flexShrink: 0,
-    marginLeft: "0.5rem",
-    whiteSpace: "nowrap",
-    minWidth: "40px",
-    maxWidth: "70px",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
+        backgroundColor: "transparent",
+        border: "none",
+        color: "#c53030",
+        cursor: "pointer",
+        fontWeight: "bold",
+        fontSize: "0.9rem",
+        flexShrink: 0,
+        marginLeft: "0.5rem",
+      
   }}
   aria-label={`Delete task: ${todo.text}`}
 >
