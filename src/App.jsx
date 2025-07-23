@@ -24,7 +24,7 @@ const App = () => {
     <div
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #667eea, #764ba2)",
+        background: "linear-gradient(135deg,rgb(102, 194, 234),rgb(75, 126, 162))",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -44,11 +44,11 @@ const App = () => {
           gap: "1.5rem",
         }}
       >
-        <h1 style={{ textAlign: "center", color: "#5a2d82", fontWeight: "bold", fontSize: "2rem" }}>
+        <h1 style={{ textAlign: "center", color: rgb(102, 194, 234), fontWeight: "bold", fontSize: "2rem" }}>
           To Do List
         </h1>
 
-        {/* Input section */}
+        
         <div>
           <label htmlFor="todo-input" style={{ fontWeight: "600", color: "#555" }}>
             Add Task
@@ -76,7 +76,7 @@ const App = () => {
             <button
               onClick={addTodo}
               style={{
-                backgroundColor: "#764ba2",
+                backgroundColor: rgb(75, 126, 162),
                 color: "white",
                 border: "none",
                 padding: "0 1.2rem",
@@ -90,7 +90,7 @@ const App = () => {
           </div>
         </div>
 
-        {/* Tasks box */}
+        
         <div
           style={{
             backgroundColor: "#f7f7f7",
@@ -117,20 +117,26 @@ const App = () => {
                 padding: "0.5rem 1rem",
                 borderRadius: "8px",
                 boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+                overflow: "hidden",
               }}
             >
               <input
                 type="checkbox"
                 checked={todo.done}
                 onChange={() => toggleDone(index)}
-                style={{ marginRight: "1rem" }}
+                style={{ marginRight: "1rem",  flexShrink: 0 }}
               />
               <span
                 style={{
                   flexGrow: 1,
+                  flexShrink: 1,
+                  minWidth: "0",
                   textDecoration: todo.done ? "line-through" : "none",
                   color: todo.done ? "#999" : "#333",
                   fontWeight: "500",
+                  whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
                 }}
               >
                 {todo.text}
@@ -144,6 +150,8 @@ const App = () => {
                   cursor: "pointer",
                   fontWeight: "bold",
                   fontSize: "0.9rem",
+                  flexShrink: 0,
+                  marginLeft: "0,5rem",
                 }}
                 aria-label={`Delete task: ${todo.text}`}
               >
