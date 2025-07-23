@@ -13,11 +13,7 @@ const App = () => {
   };
 
   const toggleDone = (index) => {
-    setTodos(
-      todos.map((todo, i) =>
-        i === index ? { ...todo, done: !todo.done } : todo
-      )
-    );
+    setTodos(todos.map((todo, i) => i === index ? {...todo, done: !todo.done} : todo));
   };
 
   const deleteTodo = (index) => {
@@ -28,7 +24,7 @@ const App = () => {
     <div
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, rgb(102, 194, 234), rgb(75, 126, 162))",
+        background: "linear-gradient(135deg,rgb(102, 194, 234),rgb(75, 126, 162))",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -48,22 +44,11 @@ const App = () => {
           gap: "1.5rem",
         }}
       >
-        <h1
-          style={{
-            textAlign: "center",
-            color: "rgb(102, 194, 234)",
-            fontWeight: "bold",
-            fontSize: "2rem",
-          }}
-        >
-          To Do List
-        </h1>
-
+    <h1 style={{ textAlign: "center", color: "rgb(102, 194, 234)", fontWeight: "bold", fontSize: "2rem" }}>
+  To Do List
+</h1>
         <div>
-          <label
-            htmlFor="todo-input"
-            style={{ fontWeight: "600", color: "#555" }}
-          >
+          <label htmlFor="todo-input" style={{ fontWeight: "600", color: "#555" }}>
             Add Task
           </label>
           <div style={{ display: "flex", marginTop: "0.5rem" }}>
@@ -103,6 +88,7 @@ const App = () => {
           </div>
         </div>
 
+        
         <div
           style={{
             backgroundColor: "#f7f7f7",
@@ -135,7 +121,7 @@ const App = () => {
                 type="checkbox"
                 checked={todo.done}
                 onChange={() => toggleDone(index)}
-                style={{ marginRight: "0.5rem" }} // smaller spacing for mobile
+                style={{ marginRight: "1rem" }}
               />
               <span
                 style={{
@@ -143,31 +129,33 @@ const App = () => {
                   textDecoration: todo.done ? "line-through" : "none",
                   color: todo.done ? "#999" : "#333",
                   fontWeight: "500",
-                  minWidth: 0,
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
+                  display: "left",
                 }}
               >
                 {todo.text}
               </span>
               <button
-                onClick={() => deleteTodo(index)}
-                style={{
-                  backgroundColor: "transparent",
-                  border: "none",
-                  color: "#c53030",
-                  cursor: "pointer",
-                  fontWeight: "bold",
-                  fontSize: "0.9rem",
-                  flexShrink: 0,
-                  marginLeft: "0.5rem",
-                  whiteSpace: "nowrap",
-                }}
-                aria-label={`Delete task: ${todo.text}`}
-              >
-                Delete
-              </button>
+            onClick={() => deleteTodo(index)}
+            style={{
+          backgroundColor: "transparent",
+    border: "none",
+    color: "#c53030",
+    cursor: "pointer",
+    fontWeight: "bold",
+    fontSize: "0.9rem",
+    flexShrink: 0,
+    marginLeft: "0.5rem",
+    whiteSpace: "nowrap",
+    minWidth: "40px",
+    maxWidth: "70px",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+  }}
+  aria-label={`Delete task: ${todo.text}`}
+>
+  Delete
+</button>
+
             </div>
           ))}
         </div>
