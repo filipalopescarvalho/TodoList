@@ -135,20 +135,23 @@ const App = () => {
               >
                 {todo.text}
               </span>
-              <button>
-                onClick={() => deleteTodo(index)}
-                style={{
-                  backgroundColor: "transparent",
-                  border: "none",
-                  color: "#c53030",
-                  cursor: "pointer",
-                  fontWeight: "bold",
-                  fontSize: "0.9rem",
-                }}
-                aria-label={`Delete task: ${todo.text}`}
-            
-                Delete
-              </button>
+              <button
+            onClick={() => deleteTodo(index)}
+            style={{
+        backgroundColor: "transparent",
+        border: "none",
+        color: "#c53030",
+        cursor: "pointer",
+        fontWeight: "bold",
+        fontSize: "0.9rem",
+        flexShrink: 0,
+        marginLeft: "0.5rem",
+  }}
+  aria-label={`Delete task: ${todo.text}`}
+>
+  Delete
+</button>
+
             </div>
           ))}
         </div>
