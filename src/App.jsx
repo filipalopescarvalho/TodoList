@@ -47,6 +47,7 @@ const App = () => {
           onChange={() => toggleDone(index)} 
           className="form-checkbox h-5 w-5 text-purple-600"
         />
+        
         <span className={todo.done ? "line-through text-gray-400" : ""}>
           {todo.text}
         </span>
