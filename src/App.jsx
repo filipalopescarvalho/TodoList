@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./App.css";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -12,8 +11,16 @@ const App = () => {
     }
   };
 
-  const deleteTodo = (indexToDelete) => {
-    setTodos(todos.filter((_, index) => index !== indexToDelete));
+  const toggleDone = (index) => {
+    const newTodos = todos.map((todo, i) => 
+      i === index ? { ...todo, done: !todo.done } : todo
+    );
+    setTodos(newTodos);
+  };
+
+  const deleteTodo = (index) => {
+    const newTodos = todos.filter((_, i) => i !== index);
+    setTodos(newTodos);
   };
 
   return (
@@ -27,43 +34,48 @@ const App = () => {
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Add a new task"
-            className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
+            placeholder="Add a new todo"
+            className="flex-grow px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
           <button
             onClick={addTodo}
-            className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition"
+            className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
           >
             Add
           </button>
         </div>
         <ul>
-  {todos.map((todo, index) => (
-    <li 
-      key={index} 
-      className="flex justify-between items-center py-2 border-b"
-    >
-      <label className="flex items-center space-x-3 cursor-pointer">
-        <input 
-          type="checkbox" 
-          checked={todo.done} 
-          onChange={() => toggleDone(index)} 
-          className="form-checkbox h-5 w-5 text-purple-600"
-        />
-        <span className={todo.done ? "line-through text-gray-400" : ""}>
-          {todo.text}
-        </span>
-      </label>
-
-      <button 
-        onClick={() => deleteTodo(index)} 
-        className="ml-4 text-red-600 hover:text-red-800 font-semibold"
-      >
-        Delete
-      </button>
-    </li>
-  ))}
-</ul>
+          {todos.map((todo, index) => (
+            <li
+              key={index}
+              className="flex items-center justify-between py-2 border-b"
+            >
+              <label className="flex items-center space-x-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={todo.done}
+                  onChange={() => toggleDone(index)}
+                  className="form-checkbox h-5 w-5 text-purple-600"
+                />
+                <span
+                  className={
+                    todo.done
+                      ? "line-through text-gray-400 select-none"
+                      : "select-none"
+                  }
+                >
+                  {todo.text}
+                </span>
+              </label>
+              <button
+                onClick={() => deleteTodo(index)}
+                className="ml-4 text-red-600 hover:text-red-800 font-semibold"
+              >
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
