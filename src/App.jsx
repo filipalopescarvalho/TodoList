@@ -3,7 +3,6 @@ import "./App.css";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
-  console.log(todos);
   const [inputValue, setInputValue] = useState("");
 
   const addTodo = () => {
@@ -14,11 +13,7 @@ const App = () => {
   };
 
   const toggleDone = (index) => {
-    setTodos(
-      todos.map((todo, i) =>
-        i === index ? { ...todo, done: !todo.done } : todo
-      )
-    );
+    setTodos(todos.map((todo, i) => i === index ? {...todo, done: !todo.done} : todo));
   };
 
   const deleteTodo = (index) => {
@@ -29,8 +24,7 @@ const App = () => {
     <div
       style={{
         minHeight: "100vh",
-        background:
-          "linear-gradient(135deg,rgb(102, 194, 234),rgb(75, 126, 162))",
+        background: "linear-gradient(135deg,rgb(102, 194, 234),rgb(75, 126, 162))",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -50,22 +44,13 @@ const App = () => {
           gap: "1.5rem",
         }}
       >
-        <h1
-          style={{
-            textAlign: "center",
-            color: "rgb(102, 194, 234)",
-            fontWeight: "bold",
-            fontSize: "2rem",
-          }}
-        >
+        <h1 style={{ textAlign: "center", color: rgb(102, 194, 234), fontWeight: "bold", fontSize: "2rem" }}>
           To Do List
         </h1>
 
+        
         <div>
-          <label
-            htmlFor="todo-input"
-            style={{ fontWeight: "600", color: "#555" }}
-          >
+          <label htmlFor="todo-input" style={{ fontWeight: "600", color: "#555" }}>
             Add Task
           </label>
           <div style={{ display: "flex", marginTop: "0.5rem" }}>
@@ -105,6 +90,7 @@ const App = () => {
           </div>
         </div>
 
+        
         <div
           style={{
             backgroundColor: "#f7f7f7",
@@ -122,57 +108,48 @@ const App = () => {
           )}
 
           {todos.map((todo, index) => (
-           <div
-           key={index}
-           style={{
-             display: "flex",
-             alignItems: "center",
-             backgroundColor: "white",
-             padding: "0.5rem 1rem",
-             borderRadius: "8px",
-             boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-             overflow: "hidden",
-           }}
-         >
-           <input
-             type="checkbox"
-             checked={todo.done}
-             onChange={() => toggleDone(index)}
-             style={{ marginRight: "1rem", flexShrink: 0 }}
-           />
-           <span
-             style={{
-               flexGrow: 1,          // Take available space
-               flexShrink: 1,        // Allow shrinking if needed
-               minWidth: 0,          // Allow shrinking below content width to prevent overflow
-               textDecoration: todo.done ? "line-through" : "none",
-               color: todo.done ? "#999" : "#333",
-               fontWeight: "500",
-               whiteSpace: "nowrap", // Prevent breaking into multiple lines
-               overflow: "hidden",   // Hide overflow
-               textOverflow: "ellipsis", // Show "..." if text is too long
-             }}
-           >
-             {todo.text}
-           </span>
-           <button
-             onClick={() => deleteTodo(index)}
-             style={{
-               backgroundColor: "transparent",
-               border: "none",
-               color: "#c53030",
-               cursor: "pointer",
-               fontWeight: "bold",
-               fontSize: "0.9rem",
-               flexShrink: 0,     
-               marginLeft: "0.5rem",
-               whiteSpace: "nowrap",
-             }}
-             aria-label={`Delete task: ${todo.text}`}
-           >
-             Delete
-           </button>
-         </div>         
+            <div
+              key={index}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                backgroundColor: "white",
+                padding: "0.5rem 1rem",
+                borderRadius: "8px",
+                boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+              }}
+            >
+              <input
+                type="checkbox"
+                checked={todo.done}
+                onChange={() => toggleDone(index)}
+                style={{ marginRight: "1rem" }}
+              />
+              <span
+                style={{
+                  flexGrow: 1,
+                  textDecoration: todo.done ? "line-through" : "none",
+                  color: todo.done ? "#999" : "#333",
+                  fontWeight: "500",
+                }}
+              >
+                {todo.text}
+              </span>
+              <button>
+                onClick={() => deleteTodo(index)}
+                style={{
+                  backgroundColor: "transparent",
+                  border: "none",
+                  color: "#c53030",
+                  cursor: "pointer",
+                  fontWeight: "bold",
+                  fontSize: "0.9rem",
+                }}
+                aria-label={`Delete task: ${todo.text}`}
+            
+                Delete
+              </button>
+            </div>
           ))}
         </div>
       </div>
