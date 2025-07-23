@@ -56,8 +56,9 @@ const App = () => {
             fontSize: "2rem",
           }}
         >
-          To Do List
-        </h1>
+<h1 style={{ textAlign: "center", color: "rgb(102, 194, 234)", fontWeight: "bold", fontSize: "2rem" }}>
+  To Do List
+</h1>
 
         <div>
           <label htmlFor="todo-input" style={{ fontWeight: "600", color: "#555" }}>
