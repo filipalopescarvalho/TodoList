@@ -44,7 +44,7 @@ const App = () => {
           gap: "1.5rem",
         }}
       >
-        <h1 style={{ textAlign: "center", color: rgb(102, 194, 234), fontWeight: "bold", fontSize: "2rem" }}>
+        <h1 style={{ textAlign: "center", color: "rgb(102, 194, 234)", fontWeight: "bold", fontSize: "2rem" }}>
           To Do List
         </h1>
 
