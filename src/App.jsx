@@ -44,7 +44,7 @@ const App = () => {
           gap: "1.5rem",
         }}
       >
-        <h1 style={{ textAlign: "center", color: rgb(102, 194, 234), fontWeight: "bold", fontSize: "2rem" }}>
+        <h1 style={{ textAlign: "center", color: "rgb(102, 194, 234)", fontWeight: "bold", fontSize: "2rem" }}>
           To Do List
         </h1>
 
@@ -76,7 +76,7 @@ const App = () => {
             <button
               onClick={addTodo}
               style={{
-                backgroundColor: rgb(75, 126, 162),
+                backgroundColor: "rgb(75, 126, 162)",
                 color: "white",
                 border: "none",
                 padding: "0 1.2rem",
@@ -151,7 +151,7 @@ const App = () => {
                   fontWeight: "bold",
                   fontSize: "0.9rem",
                   flexShrink: 0,
-                  marginLeft: "0,5rem",
+                  marginLeft: "0.5rem",
                 }}
                 aria-label={`Delete task: ${todo.text}`}
               >
