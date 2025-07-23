@@ -144,6 +144,8 @@ const App = () => {
         fontSize: "0.9rem",
         flexShrink: 0,
         marginLeft: "0.5rem",
+        whiteSpace: "nowrap",
+        minWidth: "50px",
   }}
   aria-label={`Delete task: ${todo.text}`}
 >
