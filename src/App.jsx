@@ -141,16 +141,11 @@ const App = () => {
               />
               <span
                 style={{
-                 flexGrow: 1,
-                            flexShrink: 1,
-                            minWidth: 0,
-                            whiteSpace: "nowrap",
-                            overflow: "hidden",
-                            textOverflow: "ellipsis",
-                            textDecoration: todo.done ? "line-through" : "none",
-                            color: todo.done ? "#999" : "#333",
-                            fontWeight: "500",
-                          }}
+                    flexGrow: 1,
+                    textDecoration: todo.done ? "line-through" : "none",
+                    color: todo.done ? "#999" : "#333",
+                    fontWeight: "500",
+                  }}
           
               >
                 {todo.text}
