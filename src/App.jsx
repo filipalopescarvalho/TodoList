@@ -112,18 +112,7 @@ const App = () => {
           </div>
         </div>
 
-        <div
-          style={{
-            backgroundColor: "#white",
-            borderRadius: "10px",
-            minHeight: "100px",
-            padding: "1rem",
-            display: "flex",
-            flexDirection: "column",
-            gap: "0.75rem",
-            boxShadow: "inset 0 0 8px rgba(0,0,0,0.05)",
-          }}
-        >
+        <div>
           {todos.length === 0 ? (
             <p style={{ textAlign: "center", color: "#999" }}>No tasks yet</p>
           ) : (
