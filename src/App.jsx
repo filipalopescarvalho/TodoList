@@ -34,23 +34,23 @@ const App = () => {
         alignItems: "center",
         padding: "2rem 1rem",
         boxSizing: "border-box",
-        width: "100%",
+        width: "100vh",
       }}
     >
       <div
         style={{
           backgroundColor: "white",
-          borderRadius: "12px",
+          borderRadius: "8px",
           boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
           width: "100%",
           maxWidth: "600px",
-          padding: "2rem",
+          padding: "0.75rem 1rem",
           display: "flex",
           flexDirection: "column",
           gap: "1.5rem",
-          justifyContent: "center",
-          marginLeft: "auto",
-          marginRight: "auto",
+          alignItems: "center",
+         flexWrap: "wrap",
+         justifyContent: "space-between",
         }}
       >
         
