@@ -32,7 +32,8 @@ const App = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        padding: "1rem",
+        padding: "2rem 1rem",
+        boxSizing: "border-box",
       }}
     >
       <div
@@ -41,8 +42,8 @@ const App = () => {
           borderRadius: "12px",
           boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
           width: "100%",
-          maxWidth: "600px", // Wider container for larger screens
-          padding: "1.5rem",
+          maxWidth: "600px", 
+          padding: "2rem",
           display: "flex",
           flexDirection: "column",
           gap: "1.5rem",
@@ -59,7 +60,7 @@ const App = () => {
           To Do List
         </h1>
 
-        {/* Input Section */}
+  
         <div>
           <label
             htmlFor="todo-input"
@@ -111,7 +112,7 @@ const App = () => {
           </div>
         </div>
 
-        {/* Task List */}
+       
         <div
           style={{
             backgroundColor: "#f7f7f7",
@@ -129,63 +130,56 @@ const App = () => {
           ) : (
             todos.map((todo, index) => (
               <div
-                key={index}
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  backgroundColor: "white",
-                  padding: "0.75rem",
-                  borderRadius: "8px",
-                  boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    flex: "1 1 0%",
-                    minWidth: "0",
-                  }}
-                >
-                  <input
-                    type="checkbox"
-                    checked={todo.done}
-                    onChange={() => toggleDone(index)}
-                    style={{ marginRight: "1rem", flexShrink: 0 }}
-                  />
-                  <span
-                    style={{
-                      textDecoration: todo.done ? "line-through" : "none",
-                      color: todo.done ? "#999" : "#333",
-                      fontWeight: "500",
-                      wordBreak: "break-word",
-                      overflowWrap: "break-word",
-                      flexGrow: 1,
-                    }}
-                  >
-                    {todo.text}
-                  </span>
-                </div>
+  key={index}
+  style={{
+    display: "flex",
+    alignItems: "flex-start",
+    backgroundColor: "white",
+    padding: "0.75rem 1rem",
+    borderRadius: "8px",
+    boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+    width: "100%",
+    gap: "0.75rem",
+  }}
+>
+  <input
+    type="checkbox"
+    checked={todo.done}
+    onChange={() => toggleDone(index)}
+    style={{ marginTop: "0.3rem", flexShrink: 0 }}
+  />
 
-                <button
-                  onClick={() => deleteTodo(index)}
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "none",
-                    color: "#c53030",
-                    cursor: "pointer",
-                    fontWeight: "bold",
-                    fontSize: "0.9rem",
-                    marginLeft: "1rem",
-                    flexShrink: 0,
-                  }}
-                  aria-label={`Delete task: ${todo.text}`}
-                >
-                  Delete
-                </button>
-              </div>
+  <div
+    style={{
+      flexGrow: 1,
+      wordBreak: "break-word", // ✅ wraps long text
+      overflowWrap: "break-word",
+      whiteSpace: "normal",
+      color: todo.done ? "#999" : "#333",
+      textDecoration: todo.done ? "line-through" : "none",
+      fontWeight: 500,
+      fontSize: "1rem",
+    }}
+  >
+    {todo.text}
+  </div>
+
+  <button
+    onClick={() => deleteTodo(index)}
+    style={{
+      backgroundColor: "transparent",
+      border: "none",
+      color: "#c53030",
+      cursor: "pointer",
+      fontWeight: "bold",
+      fontSize: "0.9rem",
+      flexShrink: 0,
+      whiteSpace: "nowrap",
+    }}
+  >
+    Delete
+  </button>
+</div>
             ))
           )}
         </div>
