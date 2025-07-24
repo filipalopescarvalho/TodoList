@@ -48,7 +48,7 @@ const App = () => {
           display: "flex",
           flexDirection: "column",
           gap: "1.5rem",
-          alignItems: "center",
+          alignItems: "strech",
           flexWrap: "wrap",
           justifyContent: "space-between",
         }}
@@ -125,7 +125,8 @@ const App = () => {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  backgroundColor: "#f0f0f0",
+                  justifyContent: "flex-start",
+                  backgroundColor: "white",
                   padding: "0.75rem 1rem",
                   borderRadius: "8px",
                   boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
