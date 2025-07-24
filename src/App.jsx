@@ -125,7 +125,7 @@ const App = () => {
                 key={index}
                 style={{
                   display: "flex",
-                  alignItems: "center",
+                  alignItems: "right",
                   backgroundColor: "f0f0f0",
                   padding: "0.75rem 1rem",
                   borderRadius: "8px",
