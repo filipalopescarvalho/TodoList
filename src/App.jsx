@@ -34,6 +34,7 @@ const App = () => {
         alignItems: "center",
         padding: "2rem 1rem",
         boxSizing: "border-box",
+        width: "100%",
       }}
     >
       <div
