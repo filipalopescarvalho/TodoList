@@ -49,6 +49,7 @@ const App = () => {
           gap: "1.5rem",
         }}
       >
+        
         <h1
           style={{
             textAlign: "center",
@@ -113,7 +114,7 @@ const App = () => {
 
         <div
           style={{
-            backgroundColor: "#f7f7f7",
+            backgroundColor: "#white",
             borderRadius: "10px",
             minHeight: "100px",
             padding: "1rem",
@@ -132,7 +133,7 @@ const App = () => {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  backgroundColor: "white",
+                  backgroundColor: "f0f0f0",
                   padding: "0.75rem 1rem",
                   borderRadius: "8px",
                   boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
