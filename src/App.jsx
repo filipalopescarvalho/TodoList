@@ -153,7 +153,7 @@ const App = () => {
                     textDecoration: todo.done ? "line-through" : "none",
                     fontWeight: 500,
                     fontSize: "1rem",
-                    alightItems: "center",
+                    alightItems: "right",
                     display: "flex",
                   }}
                 >
