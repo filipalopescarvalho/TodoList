@@ -49,7 +49,8 @@ const App = () => {
           flexDirection: "column",
           gap: "1.5rem",
           justifyContent: "center",
-
+          marginLeft: "auto",
+          marginRight: "auto",
         }}
       >
         
