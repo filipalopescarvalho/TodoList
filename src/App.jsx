@@ -122,59 +122,58 @@ const App = () => {
           ) : (
             todos.map((todo, index) => (
               <div
-                key={index}
-                style={{
-                  display: "flex",
-                  alignItems: "right",
-                  backgroundColor: "f0f0f0",
-                  padding: "0.75rem 1rem",
-                  borderRadius: "8px",
-                  boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-                  width: "100%",
-                  gap: "0.75rem",
-                  flexWrap: "wrap",
-                }}
-              >
-                <input
-                  type="checkbox"
-                  checked={todo.done}
-                  onChange={() => toggleDone(index)}
-                  style={{ flexShrink: 0 }}
-                />
+    key={index}
+    style={{
+      display: "flex",
+      alignItems: "center",          // fix alignment
+      backgroundColor: "#f0f0f0",    // fix color format
+      padding: "0.75rem 1rem",
+      borderRadius: "8px",
+      boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+      width: "100%",
+      gap: "0.75rem",
+      flexWrap: "nowrap",            // keep everything in one line
+    }}
+  >
+    <input
+      type="checkbox"
+      checked={todo.done}
+      onChange={() => toggleDone(index)}
+      style={{ flexShrink: 0 }}
+    />
 
-                <div
-                  style={{
-                    flexGrow: "1 1 auto",
-                    minWidth: "0",
-                    wordBreak: "break-word",
-                    overflowWrap: "break-word",
-                    whiteSpace: "normal",
-                    color: todo.done ? "#999" : "#333",
-                    textDecoration: todo.done ? "line-through" : "none",
-                    fontWeight: 500,
-                    fontSize: "1rem",
-                    alightItems: "right",
-                    display: "flex",
-                  }}
-                >
-                  {todo.text}
-                </div>
+    <div
+      style={{
+        flexGrow: 1,
+        wordBreak: "break-word",
+        overflowWrap: "break-word",
+        whiteSpace: "nowrap",        // force one line
+        overflow: "hidden",          // hide overflow if too long
+        textOverflow: "ellipsis",    // show ... for long text
+        color: todo.done ? "#999" : "#333",
+        textDecoration: todo.done ? "line-through" : "none",
+        fontWeight: 500,
+        fontSize: "1rem",
+      }}
+    >
+      {todo.text}
+    </div>
 
-                <button
-                  onClick={() => deleteTodo(index)}
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "none",
-                    color: "#c53030",
-                    cursor: "pointer",
-                    fontWeight: "bold",
-                    fontSize: "0.9rem",
-                    flexShrink: 0,
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  Delete
-                </button>
+    <button
+      onClick={() => deleteTodo(index)}
+      style={{
+        backgroundColor: "transparent",
+        border: "none",
+        color: "#c53030",
+        cursor: "pointer",
+        fontWeight: "bold",
+        fontSize: "0.9rem",
+        flexShrink: 0,
+        whiteSpace: "nowrap",
+      }}
+    >
+      Delete
+    </button>
               </div>
             ))
           )}
