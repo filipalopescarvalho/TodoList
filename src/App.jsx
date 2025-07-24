@@ -126,7 +126,7 @@ const App = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "flex-start",
-                  backgroundColor: "white",
+                  backgroundColor: "#ffffff",
                   padding: "0.75rem 1rem",
                   borderRadius: "8px",
                   boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
