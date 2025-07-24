@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { startTransition, useState } from "react";
 import "./App.css";
 
 const App = () => {
@@ -34,7 +34,7 @@ const App = () => {
         alignItems: "center",
         padding: "2rem 1rem",
         boxSizing: "border-box",
-        width: "100vw",
+        width: "120%",
       }}
     >
       <div
@@ -48,7 +48,7 @@ const App = () => {
           display: "flex",
           flexDirection: "column",
           gap: "1.5rem",
-          alignItems: "strech",
+          alignItems: "center",
           flexWrap: "wrap",
           justifyContent: "space-between",
         }}
@@ -115,40 +115,43 @@ const App = () => {
           </div>
         </div>
 
-        <div>
+       
+        <div style={{ 
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          gap: "1rem",}}>
           {todos.length === 0 ? (
             <p style={{ textAlign: "center", color: "#999" }}>No tasks yet</p>
           ) : (
             todos.map((todo, index) => (
               <div
-                key={index}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "flex-start",
-                  backgroundColor: "#ffffff",
-                  padding: "0.75rem 1rem",
-                  borderRadius: "8px",
-                  boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-                  width: "100%",
-                  gap: "0.75rem",
-                  flexWrap: "nowrap",
-                  minWidth: 0,
-                }}
-              >
+              key={index}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                backgroundColor: "white",
+                padding: "0.75rem 1rem",
+                borderRadius: "8px",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                width: "100%",
+                boxSizing: "border-box",
+                gap: "1rem",
+              }}
+            >
+              {/* Checkbox and Task Text */}
+              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexGrow: 1 }}>
                 <input
                   type="checkbox"
                   checked={todo.done}
                   onChange={() => toggleDone(index)}
-                  style={{ flexShrink: 0, whiteSpace: "nowrap" }}
+                  style={{ transform: "scale(1.2)", cursor: "pointer", flexShrink: 0, marginRight: "0.75rem" }}   
                 />
-
-                <div
+                <span
                   style={{
-                    flexGrow: 1,
-                    whiteSpace: "nowrap",
-                    overflow: "visible",
-                    wordBreak: "normal",
+                    wordWrap: "break-word",
+                    whiteSpace: "normal",
                     color: todo.done ? "#999" : "#333",
                     textDecoration: todo.done ? "line-through" : "none",
                     fontWeight: 500,
@@ -156,27 +159,30 @@ const App = () => {
                   }}
                 >
                   {todo.text}
-                </div>
-
-                <button
-                  onClick={() => deleteTodo(index)}
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "none",
-                    color: "#c53030",
-                    cursor: "pointer",
-                    fontWeight: "bold",
-                    fontSize: "0.9rem",
-                    flexShrink: 0,
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  Delete
-                </button>
+                </span>
               </div>
+            
+              {/* Delete Button */}
+              <button
+                onClick={() => deleteTodo(index)}
+                style={{
+                  backgroundColor: "transparent",
+                  border: "none",
+                  color: "#c53030",
+                  cursor: "pointer",
+                  fontWeight: "bold",
+                  fontSize: "0.9rem",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Delete
+              </button>
+            </div>
+
             ))
           )}
         </div>
+
       </div>
     </div>
   );
