@@ -150,7 +150,8 @@ const App = () => {
 
                 <div
                   style={{
-                    flexGrow: 1,
+                    flexGrow: "1 1 auto",
+                    minWidth: "0",
                     wordBreak: "break-word",
                     overflowWrap: "break-word",
                     whiteSpace: "normal",
