@@ -42,7 +42,7 @@ const App = () => {
           borderRadius: "12px",
           boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
           width: "100%",
-          maxWidth: "600px", 
+          maxWidth: "600px",
           padding: "2rem",
           display: "flex",
           flexDirection: "column",
@@ -60,7 +60,6 @@ const App = () => {
           To Do List
         </h1>
 
-  
         <div>
           <label
             htmlFor="todo-input"
@@ -112,7 +111,6 @@ const App = () => {
           </div>
         </div>
 
-       
         <div
           style={{
             backgroundColor: "#f7f7f7",
@@ -130,56 +128,57 @@ const App = () => {
           ) : (
             todos.map((todo, index) => (
               <div
-  key={index}
-  style={{
-    display: "flex",
-    alignItems: "flex-start",
-    backgroundColor: "white",
-    padding: "0.75rem 1rem",
-    borderRadius: "8px",
-    boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-    width: "100%",
-    gap: "0.75rem",
-  }}
->
-  <input
-    type="checkbox"
-    checked={todo.done}
-    onChange={() => toggleDone(index)}
-    style={{ marginTop: "0.3rem", flexShrink: 0 }}
-  />
+                key={index}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  backgroundColor: "white",
+                  padding: "0.75rem 1rem",
+                  borderRadius: "8px",
+                  boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+                  width: "100%",
+                  gap: "0.75rem",
+                  flexWrap: "wrap",
+                }}
+              >
+                <input
+                  type="checkbox"
+                  checked={todo.done}
+                  onChange={() => toggleDone(index)}
+                  style={{ flexShrink: 0 }}
+                />
 
-  <div
-    style={{
-      flexGrow: 1,
-      wordBreak: "break-word", // ✅ wraps long text
-      overflowWrap: "break-word",
-      whiteSpace: "normal",
-      color: todo.done ? "#999" : "#333",
-      textDecoration: todo.done ? "line-through" : "none",
-      fontWeight: 500,
-      fontSize: "1rem",
-    }}
-  >
-    {todo.text}
-  </div>
+                <div
+                  style={{
+                    flexGrow: 1,
+                    wordBreak: "break-word",
+                    overflowWrap: "break-word",
+                    whiteSpace: "normal",
+                    color: todo.done ? "#999" : "#333",
+                    textDecoration: todo.done ? "line-through" : "none",
+                    fontWeight: 500,
+                    fontSize: "1rem",
+                  }}
+                >
+                  {todo.text}
+                </div>
 
-  <button
-    onClick={() => deleteTodo(index)}
-    style={{
-      backgroundColor: "transparent",
-      border: "none",
-      color: "#c53030",
-      cursor: "pointer",
-      fontWeight: "bold",
-      fontSize: "0.9rem",
-      flexShrink: 0,
-      whiteSpace: "nowrap",
-    }}
-  >
-    Delete
-  </button>
-</div>
+                <button
+                  onClick={() => deleteTodo(index)}
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "none",
+                    color: "#c53030",
+                    cursor: "pointer",
+                    fontWeight: "bold",
+                    fontSize: "0.9rem",
+                    flexShrink: 0,
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
             ))
           )}
         </div>
