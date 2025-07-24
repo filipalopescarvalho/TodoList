@@ -34,7 +34,7 @@ const App = () => {
         alignItems: "center",
         padding: "2rem 1rem",
         boxSizing: "border-box",
-        width: "100vh",
+        width: "100vw",
       }}
     >
       <div
@@ -132,6 +132,7 @@ const App = () => {
                   width: "100%",
                   gap: "0.75rem",
                   flexWrap: "nowrap",
+                  minWidth: 0,
                 }}
               >
                 <input
